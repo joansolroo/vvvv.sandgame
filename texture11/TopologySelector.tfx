@@ -1,0 +1,94 @@
+//@author: vux
+//@help: template for texture fx
+//@tags: texture
+//@credits: 
+
+Texture2D texture2d : PREVIOUS;
+Texture2D mask;
+
+float2 heightRange = float2(0.0,1);
+float2 gradientRangeX = float2(0,1);
+float2 gradientRangeY = float2(0,1);
+SamplerState linearSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+SamplerState pointSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_POINT;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+
+float4 PS(psInput input) : SV_Target
+{
+	float4 c = texture2d.Sample(pointSampler,input.uv);
+	float4 m = mask.Sample(pointSampler,input.uv);
+	float4 result = float4(0,0,0,1);
+	if(c.x >= heightRange[0] && c.x <= heightRange[1])
+		result.x = 1;
+	if(abs(c.y-0.5) >= gradientRangeX[0] && abs(c.y-0.5)<=gradientRangeX[1])
+		result.y = 1;
+	if(abs(c.z-0.5) >= gradientRangeY[0]  && abs(c.z-0.5)<=gradientRangeY[1])
+		result.z = 1;
+	return result*m;
+	
+}
+float4 PS_continous(psInput input) : SV_Target
+{
+	float4 c = texture2d.Sample(pointSampler,input.uv);
+	float4 m = mask.Sample(pointSampler,input.uv);
+	float4 result = float4(0,0,0,1);
+	if(c.x >= heightRange[0] && c.x <= heightRange[1])
+		result.x = m.x;
+	if(abs(c.y-0.5) >= gradientRangeX[0] && abs(c.y-0.5)<=gradientRangeX[1])
+		result.y = m.y;
+	if(abs(c.z-0.5) >= gradientRangeY[0]  && abs(c.z-0.5)<=gradientRangeY[1])
+		result.z = m.z;
+	return result*m;
+	
+}
+float4 PS_continous_maskonly(psInput input) : SV_Target
+{
+	float4 c = texture2d.Sample(pointSampler,input.uv);
+	float4 m = mask.Sample(pointSampler,input.uv);
+	float4 result = float4(1,1,1,1);
+	return result*m;
+	
+}
+technique10 Binary
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS()));
+	}
+}
+
+technique10 Continous
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_continous()));
+	}
+}
+
+
+technique10 Continous_maskonly
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_continous_maskonly()));
+	}
+}
+
+

@@ -1,0 +1,333 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\Subpatches\PlayerControllerSimulator.v4p" systemname="PlayerControllerSimulator" filename="C:\vvvv\projects\vvvv.sandgame\Subpatches\PlayerControllerSimulator.v4p" scrollx="765" scrolly="0">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="6" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1830" top="9780" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1830" top="9780" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Long Term Excitement Score|">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0.999151437805209" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="7" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4455" top="9780" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4455" top="9780" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Short Term Excitement Score|">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="8" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6600" top="2565" width="4515" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6600" top="2565" width="3255" height="1185">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|The &quot;Model params&quot; pins are structured in three components:&cr;&lf;- Raw signal&cr;&lf;- Lower scale factor&cr;&lf;- High scale factor|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="9" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6600" top="3975" width="3630" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6600" top="3975" width="2100" height="525">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|The computed scaled value is on a standalone pin|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="12" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6150" top="9750" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6150" top="9750" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Meditation Score|">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="15" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="8070" top="9630" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8070" top="9630" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Frustration Score|">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="18" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="10635" top="9630" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10635" top="9630" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Boredom Score|">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0" visible="1">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="21" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="10005" top="2565" width="1950" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10005" top="2565" width="2340" height="1185">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Affectiv supports 4 states&cr;&lf;- Excitement&cr;&lf;- Meditation&cr;&lf;- Frustration&cr;&lf;- Boredom|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="22" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="11040" top="1500" width="2745" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11040" top="1500" width="3540" height="375">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|From the SDK documentation: &gt;&gt;&gt;|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="10">
+   </PIN>
+   </NODE>
+   <BOUNDS type="Window" left="1995" top="1560" width="17670" height="14550">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="42" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2100" top="5235" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2100" top="5235" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Long Term Excitement Score|">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.5">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Minimum" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="AddNoise" filename="AddNoise.v4p" nodename="AddNoise.v4p" componentmode="Hidden" id="48">
+   <BOUNDS type="Node" left="1822" top="7689" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="0" top="4569" width="4405" height="6240">
+   </BOUNDS>
+   <BOUNDS type="Window" left="-1" top="-1" width="4405" height="6240">
+   </BOUNDS>
+   <PIN pinname="NoiseScale" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="48" srcpinname="Output" dstnodeid="6" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="42" srcpinname="Y Output Value" dstnodeid="48" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="49" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="12135" top="6555" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="12135" top="6555" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.001">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="NoiseScale">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="49" srcpinname="Y Output Value" dstnodeid="48" dstpinname="NoiseScale">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="53" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4710" top="5385" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4710" top="5385" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Short Term Excitement Score|">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="52" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6405" top="5355" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6405" top="5355" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Meditation Score|">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="51" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="8325" top="5235" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8325" top="5235" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Frustration Score|">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="50" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="10890" top="5235" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10890" top="5235" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Boredom Score|">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="AddNoise" filename="AddNoise.v4p" nodename="AddNoise.v4p" componentmode="Hidden" id="54">
+   <BOUNDS type="Node" left="4425" top="7635" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2603" top="4515" width="4405" height="6240">
+   </BOUNDS>
+   <BOUNDS type="Window" left="-1" top="-1" width="4405" height="6240">
+   </BOUNDS>
+   <PIN pinname="NoiseScale" visible="1" slicecount="1" values="0.001">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="AddNoise" filename="AddNoise.v4p" nodename="AddNoise.v4p" componentmode="Hidden" id="55">
+   <BOUNDS type="Node" left="6210" top="7665" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4388" top="4545" width="4405" height="6240">
+   </BOUNDS>
+   <BOUNDS type="Window" left="-1" top="-1" width="4405" height="6240">
+   </BOUNDS>
+   <PIN pinname="NoiseScale" visible="1" slicecount="1" values="0.001">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="AddNoise" filename="AddNoise.v4p" nodename="AddNoise.v4p" componentmode="Hidden" id="56">
+   <BOUNDS type="Node" left="8190" top="7605" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6368" top="4485" width="4405" height="6240">
+   </BOUNDS>
+   <BOUNDS type="Window" left="-1" top="-1" width="4405" height="6240">
+   </BOUNDS>
+   <PIN pinname="NoiseScale" visible="1" slicecount="1" values="0.001">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="AddNoise" filename="AddNoise.v4p" nodename="AddNoise.v4p" componentmode="Hidden" id="57">
+   <BOUNDS type="Node" left="10770" top="7665" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8948" top="4545" width="4405" height="6240">
+   </BOUNDS>
+   <BOUNDS type="Window" left="-1" top="-1" width="4405" height="6240">
+   </BOUNDS>
+   <PIN pinname="NoiseScale" visible="1" slicecount="1" values="0.001">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="53" srcpinname="Y Output Value" dstnodeid="54" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="54" srcpinname="Output" dstnodeid="7" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="52" srcpinname="Y Output Value" dstnodeid="55" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="55" srcpinname="Output" dstnodeid="12" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="51" srcpinname="Y Output Value" dstnodeid="56" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="56" srcpinname="Output" dstnodeid="15" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="50" srcpinname="Y Output Value" dstnodeid="57" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="57" srcpinname="Output" dstnodeid="18" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="49" srcpinname="Y Output Value" dstnodeid="54" dstpinname="NoiseScale">
+   </LINK>
+   <LINK srcnodeid="49" srcpinname="Y Output Value" dstnodeid="57" dstpinname="NoiseScale">
+   </LINK>
+   <LINK srcnodeid="49" srcpinname="Y Output Value" dstnodeid="56" dstpinname="NoiseScale">
+   </LINK>
+   <LINK srcnodeid="49" srcpinname="Y Output Value" dstnodeid="55" dstpinname="NoiseScale">
+   </LINK>
+   </PATCH>

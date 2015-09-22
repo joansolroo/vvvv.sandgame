@@ -1,0 +1,103 @@
+//@author: vux
+//@help: template for texture fx
+//@tags: texture
+//@credits: 
+
+Texture2D previousTexture : PREVIOUS;
+Texture2D colorTexture;
+Texture2D topology;
+
+float EPSILON = 0.0001;
+float4 color<bool color=true; String uiname="Ambient Color";>  = {0, 0, 1, 1};
+
+SamplerState linearSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+SamplerState pointSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_POINT;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+
+float4 PS_XandYandZ(psInput input) : SV_Target
+{
+	float4 previous = previousTexture.Sample(pointSampler,input.uv);
+	float4 info = topology.Sample(pointSampler,input.uv);
+	float4 tex = colorTexture.Sample(pointSampler,input.uv);
+	if(abs(info.x-1)<= EPSILON && abs(info.y-1)<= EPSILON && abs(info.z-1)<= EPSILON)
+		return tex*color;
+	else
+		return previous;
+	
+//return result;
+	
+}
+
+
+float4 PS_XandYandZGradual(psInput input) : SV_Target
+{
+	float4 previous = previousTexture.Sample(pointSampler,input.uv);
+	float4 info = topology.Sample(pointSampler,input.uv);
+	float4 tex = colorTexture.Sample(pointSampler,input.uv);
+	//if(abs(info.x-1)<= EPSILON && abs(info.y-1)<= EPSILON && abs(info.z-1)<= EPSILON)
+	//	return tex*color;
+	//else
+	//	return previous;
+	return tex*color*info;
+	
+//return result;
+	
+}
+
+float4 PS_XandYorZ(psInput input) : SV_Target
+{
+	float4 previous = previousTexture.Sample(pointSampler,input.uv);
+	float4 info = topology.Sample(pointSampler,input.uv);
+	float4 tex = colorTexture.Sample(pointSampler,input.uv);
+	if(abs(info.x-1)<= EPSILON && (abs(info.y-1)<= EPSILON || abs(info.z-1)<= EPSILON))
+		return tex*color;
+	else
+		return previous;
+	
+//return result;
+	
+}
+
+technique10 HeightAndOneGradient
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_XandYorZ()));
+	}
+}
+
+technique10 HeightAndBothGradients
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_XandYandZ()));
+	}
+}
+technique10 HeightAndBothGradientsGradual
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_XandYandZ()));
+	}
+}
+
+
+

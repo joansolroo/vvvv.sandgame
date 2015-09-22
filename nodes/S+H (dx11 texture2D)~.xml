@@ -1,0 +1,97 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\nodes\S+H (dx11 texture2D).v4p" scrollx="675" scrolly="765" systemname="S+H (dx11 texture2D)" filename="C:\vvvv\projects\vvvv.sandgame\nodes\S+H (dx11 texture2D).v4p">
+   <NODE systemname="Switch (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Switch (DX11.Texture 2d)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="2070" top="2595" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Switch" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="1" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1500" top="1935" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1500" top="1935" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Set">
+   </PIN>
+   </NODE>
+   <NODE systemname="FrameDelay (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="FrameDelay (DX11.Texture 2d)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="2565" top="2160" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Flush" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="3" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="3075" top="1500" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3075" top="1500" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Input">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="4" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2100" top="3360" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2100" top="3360" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Output">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Switch">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Texture Out" dstnodeid="0" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="3" srcpinname="Output Node" dstnodeid="0" dstpinname="Input 2">
+   </LINK>
+   <NODE id="5" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Output 1|">
+   </PIN>
+   <BOUNDS type="Box" left="2070" top="3860" width="750" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2070" top="3860" width="750" height="240">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Output" dstnodeid="5" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Output" dstnodeid="4" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Output" dstnodeid="2" dstpinname="Texture In">
+   <LINKPOINT x="2100" y="3285">
+   </LINKPOINT>
+   <LINKPOINT x="3615" y="3285">
+   </LINKPOINT>
+   <LINKPOINT x="3615" y="2055">
+   </LINKPOINT>
+   <LINKPOINT x="2715" y="2055">
+   </LINKPOINT>
+   </LINK>
+   <BOUNDS type="Window" left="-1" top="-1" width="4575" height="4860">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   </PATCH>

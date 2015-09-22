@@ -1,0 +1,98 @@
+//@author: vux
+//@help: template for texture fx
+//@tags: texture
+//@credits: 
+
+Texture2D topology : PREVIOUS;
+Texture2D mask;
+
+float EPSILON = 0.0001;
+
+SamplerState linearSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+SamplerState pointSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_POINT;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+
+float4 PS_XandYandZ(psInput input) : SV_Target
+{
+	float4 info = topology.Sample(linearSampler,input.uv);
+	float m = mask.Sample(linearSampler,input.uv).r;
+	float4 c;
+	if(abs(info.x-1)<= EPSILON && abs(info.y-1)<= EPSILON && abs(info.z-1)<= EPSILON)
+		c = float4(1,0,0,1);
+	else
+		c = float4(0,0,0,1);
+	
+	return c*m;
+	
+//return result;
+	
+}
+
+
+float4 PS_XandYandZGradual(psInput input) : SV_Target
+{
+	float4 info = topology.Sample(pointSampler,input.uv);
+	
+	float m = mask.Sample(linearSampler,input.uv).r;
+	
+	return float4(info.x*info.y*info.z*m,0,0,1);
+	
+//return result;
+	
+}
+
+float4 PS_XandYorZ(psInput input) : SV_Target
+{
+	float4 info = topology.Sample(pointSampler,input.uv);
+	if(abs(info.x-1)<= EPSILON && (abs(info.y-1)<= EPSILON || abs(info.z-1)<= EPSILON))
+		return float4(1,0,0,1);
+	else
+		return float4(0,0,0,1);
+	
+//return result;
+	
+}
+
+technique10 HeightAndOneGradient
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_XandYorZ()));
+	}
+}
+
+technique10 HeightAndBothGradients
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_XandYandZ()));
+	}
+}
+technique10 HeightAndBothGradientsGradual
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_XandYandZGradual()));
+	}
+}
+
+
+

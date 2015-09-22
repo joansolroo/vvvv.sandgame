@@ -1,0 +1,57 @@
+//@author: tmp 
+//@help: StreamOut of coordinates calculated with the Kinect Depth Texture
+//@tags: DX11, Kinect, Pointcloud
+//@credits: vvvv
+
+float4x4 tW <string uiname="Transform In";>;
+
+Texture2D texXYZ <string uiname="XYZ";>;
+
+struct VS_IN
+{
+	float4 pos : POSITION;
+	float2 uv : TEXCOORD0;
+	uint iv : SV_VertexID;
+};
+
+struct VS_OUT
+{
+	float4 pos : POSITION;
+	float2 uv : TEXCOORD0;
+};
+
+SamplerState sPoint : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_POINT;
+    AddressU = Border;
+    AddressV = Border;
+};
+
+VS_OUT VS(VS_IN input)
+{
+	VS_OUT o;
+	
+	float3 xyz =  texXYZ.SampleLevel(sPoint,input.uv.xy,0).rgb;
+	input.pos = float4(xyz.x,xyz.y, xyz.z,1);
+	
+	
+	input.pos = mul(input.pos, tW);
+	
+	o.uv = input.uv;
+	o.pos = input.pos;
+	
+    return o;
+}
+
+
+GeometryShader StreamOutGS = ConstructGSWithSO( CompileShader( vs_4_0, VS() ), "POSITION.xyzw;TEXCOORD0.xy",NULL,NULL,NULL,-1 );
+
+technique10 PassMesh
+{
+    pass PP2
+    {
+        SetVertexShader( CompileShader( vs_4_0, VS() ) );
+        SetGeometryShader( StreamOutGS );
+    }  
+}
+
