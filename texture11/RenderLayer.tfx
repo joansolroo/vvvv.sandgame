@@ -4,6 +4,7 @@
 //@credits: 
 
 Texture2D texture2d : PREVIOUS;
+float2 textureScale = {1,1};
 Texture2D colorTexture;
 Texture2D mask;
 float4 color<bool color=true; String uiname="Ambient Color";>  = {0, 0, 1, 1};
@@ -25,10 +26,10 @@ struct psInput
 float4 PS(psInput input) : SV_Target
 {
 	float4 p = texture2d.Sample(linearSampler,input.uv);
-	float4 c = colorTexture.Sample(linearSampler,input.uv)*color;
+	float4 c = colorTexture.Sample(linearSampler,input.uv*textureScale%1)*color;
 	float m = mask.Sample(linearSampler,input.uv).x;
 	float4 mix = float4(0,0,0,1);
-	mix.rgb = c.rgb*m*c.a+p.rgb*(1-m);
+	mix.rgb = c.rgb*m*c.a+p.rgb*(1-m)*p.a;
 	return mix;
 }
 

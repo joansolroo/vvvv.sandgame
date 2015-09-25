@@ -27,6 +27,7 @@ struct psInput
 
 float4 PS(psInput input) : SV_Target
 {
+	int count = 0;
 	float flow = 0;
 	float3 localTopo = topography.Sample(linearSampler,input.uv).xyz;
 	float currentValue = texture2d.Sample(linearSampler,input.uv).x;
@@ -41,15 +42,18 @@ float4 PS(psInput input) : SV_Target
 				float3 t = topography.Sample(linearSampler,input.uv+float2(dx,dy)/size).xyz;
 				float delta = distance(t.xy,float2(0,0));
 				if(t[0]>localTopo[0]){
-					flow+=speed*delta*v*speed;
+					flow+=speed*(1-delta)*v*speed;
 				}else if(t[0]<localTopo[0])
-					flow-=speed*delta*v*speed;
+					flow-=speed*(1-delta)*v*speed;
 				else
 					flow += lakeFactor;
+				if(v>0.7)
+					count++;
 			}
 		}
 	}
-	
+	if(count>=6)
+		flow = speed;
 	float4 c = texture2d.Sample(linearSampler,input.uv);
 	float sea = seaMask.Sample(linearSampler,input.uv).x;
 	if(sea < 0.5)

@@ -5,6 +5,7 @@
 
 Texture2D texture2d : PREVIOUS;
 float2 size = float2(64,64);
+float gradientScale = 1.0f/400;
 SamplerState linearSampler : IMMUTABLE
 {
     Filter = MIN_MAG_MIP_POINT;
@@ -34,6 +35,24 @@ technique10 Process
 		SetPixelShader(CompileShader(ps_4_0,PS()));
 	}
 }
+
+float4 PS_normalize(psInput input) : SV_Target
+{
+	float4 c = texture2d.Sample(linearSampler,input.uv);
+	float4 cUp = texture2d.Sample(linearSampler,input.uv+float2(0,-1)/size.x);
+	float4 cLeft = texture2d.Sample(linearSampler,input.uv+float2(-1,0)/size.y);
+	return float4(c.y,(c.y - cLeft.y)/distance(c.xz,cLeft.xz)*gradientScale+0.5, (c.y - cUp.y)/distance(c.xz,cUp.xz)*gradientScale+0.5, 1);
+}
+
+technique10 Process_normalize
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_normalize()));
+	}
+}
+
+
 
 
 

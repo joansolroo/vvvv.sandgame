@@ -2,8 +2,8 @@
 //@help: template for texture fx
 //@tags: texture
 //@credits: 
-
 Texture2D texture2d : PREVIOUS;
+Texture2D topography;
 Texture2D mask;
 
 float2 heightRange = float2(0.0,1);
@@ -32,7 +32,7 @@ struct psInput
 
 float4 PS(psInput input) : SV_Target
 {
-	float4 c = texture2d.Sample(pointSampler,input.uv);
+	float4 c = topography.Sample(pointSampler,input.uv);
 	float4 m = mask.Sample(pointSampler,input.uv);
 	float4 result = float4(0,0,0,1);
 	if(c.x >= heightRange[0] && c.x <= heightRange[1])
@@ -46,7 +46,7 @@ float4 PS(psInput input) : SV_Target
 }
 float4 PS_continous(psInput input) : SV_Target
 {
-	float4 c = texture2d.Sample(pointSampler,input.uv);
+	float4 c = topography.Sample(pointSampler,input.uv);
 	float4 m = mask.Sample(pointSampler,input.uv);
 	float4 result = float4(0,0,0,1);
 	if(c.x >= heightRange[0] && c.x <= heightRange[1])
@@ -60,7 +60,7 @@ float4 PS_continous(psInput input) : SV_Target
 }
 float4 PS_continous_maskonly(psInput input) : SV_Target
 {
-	float4 c = texture2d.Sample(pointSampler,input.uv);
+	float4 c = topography.Sample(pointSampler,input.uv);
 	float4 m = mask.Sample(pointSampler,input.uv);
 	float4 result = float4(1,1,1,1);
 	return result*m;

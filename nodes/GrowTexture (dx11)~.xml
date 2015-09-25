@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\nodes\GrowTexture (dx11).v4p" systemname="GrowTexture (dx11)" filename="C:\vvvv\projects\vvvv.sandgame\nodes\GrowTexture (dx11).v4p" scrollx="15" scrolly="735">
-   <BOUNDS type="Window" left="17475" top="5460" width="7980" height="8745">
+   <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\nodes\GrowTexture (dx11).v4p" systemname="GrowTexture (dx11)" filename="C:\vvvv\projects\vvvv.sandgame\nodes\GrowTexture (dx11).v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="17925" top="5310" width="10470" height="8745">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
@@ -265,6 +265,10 @@
    </PIN>
    <PIN pinname="mask" visible="1" slicecount="1" values="||">
    </PIN>
+   <PIN pinname="replace" visible="1">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="Mask">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="19" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="660" top="2580" width="795" height="240">
@@ -298,10 +302,8 @@
    <LINKPOINT x="300" y="2850">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="18" srcpinname="Texture Out" dstnodeid="5" dstpinname="Input 1" linkstyle="Bezier">
-   <LINKPOINT x="345" y="3810">
-   </LINKPOINT>
-   <LINKPOINT x="2385" y="3810">
-   </LINKPOINT>
+   <LINK srcnodeid="9" srcpinname="Output Node" dstnodeid="18" dstpinname="replace">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Texture Out" dstnodeid="5" dstpinname="Input 1">
    </LINK>
    </PATCH>

@@ -19,7 +19,7 @@ struct psInput
 };
 
 
-float4 PS(psInput input) : SV_Target
+float4 PS_replace(psInput input) : SV_Target
 {
 	float4 c = texture2d.Sample(linearSampler,input.uv);
 	float4 r = replace.Sample(linearSampler,input.uv);
@@ -32,9 +32,26 @@ technique10 Process
 {
 	pass P0
 	{
-		SetPixelShader(CompileShader(ps_4_0,PS()));
+		SetPixelShader(CompileShader(ps_4_0,PS_replace()));
 	}
 }
+float4 PS_mask(psInput input) : SV_Target
+{
+	float4 c = texture2d.Sample(linearSampler,input.uv);
+	//float4 r = replace.Sample(linearSampler,input.uv);
+	float4 m = mask.Sample(linearSampler,input.uv);
+	float3 mix = c.xyz*m.xyz;
+	return float4(mix, 1);
+}
+
+technique10 Mask
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_mask()));
+	}
+}
+
 
 
 
