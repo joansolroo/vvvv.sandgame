@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\Subpatches\Object3D-treeBox.v4p" scrollx="0" scrolly="0" systemname="Object3D-treeBox" filename="C:\vvvv\projects\vvvv.sandgame\Subpatches\Object3D-treeBox.v4p">
+   <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\Subpatches\Object3D-treeBox.v4p" scrollx="195" scrolly="600" systemname="Object3D-treeBox" filename="C:\vvvv\projects\vvvv.sandgame\Subpatches\Object3D-treeBox.v4p">
    <BOUNDS type="Window" left="0" top="0" width="15660" height="8925">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
@@ -243,17 +243,49 @@
    <LINK srcnodeid="37" srcpinname="Y Output Value" dstnodeid="43" dstpinname="Translate XYZ">
    </LINK>
    <NODE systemname="Scale (Transform Vector)" nodename="Scale (Transform Vector)" componentmode="Hidden" id="45">
-   <BOUNDS type="Node" left="4170" top="3930" width="100" height="100">
+   <BOUNDS type="Node" left="4170" top="4005" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
-   <PIN pinname="Transform In" visible="1">
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="XYZ" slicecount="3" values="0.51,0.51,0.51">
+   <PIN pinname="XYZ" slicecount="3" values="0.51,0.51,0.51" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="45" srcpinname="Transform Out" dstnodeid="21" dstpinname="Input Node">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="46" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4635" top="2910" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4635" top="2910" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0.13,0.13,0.13">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="scale">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="46" srcpinname="Y Output Value" dstnodeid="45" dstpinname="XYZ">
    </LINK>
-   <LINK srcnodeid="42" srcpinname="Output" dstnodeid="45" dstpinname="Transform In">
+   <NODE systemname="Multiply (Transform)" nodename="Multiply (Transform)" componentmode="Hidden" id="47">
+   <BOUNDS type="Node" left="3855" top="4485" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform In 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform In 1" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="47" srcpinname="Transform Out" dstnodeid="21" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Transform Out" dstnodeid="47" dstpinname="Transform In 2">
+   </LINK>
+   <LINK srcnodeid="42" srcpinname="Output" dstnodeid="47" dstpinname="Transform In 1">
    </LINK>
    </PATCH>

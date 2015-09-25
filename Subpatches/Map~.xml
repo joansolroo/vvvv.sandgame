@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\Subpatches\Map.v4p" systemname="Map" filename="C:\vvvv\projects\vvvv.sandgame\Subpatches\Map.v4p" scrollx="0" scrolly="90">
-   <BOUNDS type="Window" left="40155" top="3435" width="10575" height="12720">
+   <BOUNDS type="Window" left="16050" top="2655" width="10575" height="12720">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
@@ -78,6 +78,10 @@
    <PIN pinname="sizeXY" visible="1" slicecount="2" values="512,512">
    </PIN>
    <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="Process_normalize">
+   </PIN>
+   <PIN pinname="gradientScale" slicecount="1" values="0.0013">
    </PIN>
    </NODE>
    <NODE systemname="Invert (DX11.TextureFX)" filename="%VVVV%\packs\dx11\nodes\texture11\Filter\Invert.tfx" nodename="Invert (DX11.TextureFX)" componentmode="Hidden" id="3">
@@ -173,13 +177,15 @@
    </PIN>
    </NODE>
    <NODE systemname="MapXYZ (DX11.TextureFX)" filename="..\texture11\MapXYZ.tfx" nodename="MapXYZ (DX11.TextureFX)" componentmode="Hidden" id="11">
-   <BOUNDS type="Node" left="1500" top="8445" width="100" height="100">
+   <BOUNDS type="Node" left="1500" top="8355" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
    <PIN pinname="scaleXYZ" visible="1" slicecount="3" values="1,1,1">
+   </PIN>
+   <PIN pinname="tW" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE systemname="FrameDelay (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="FrameDelay (DX11.Texture 2d)" componentmode="Hidden" id="12">
@@ -279,18 +285,12 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="18" srcpinname="Output Node" dstnodeid="11" dstpinname="Texture In" linkstyle="VHV">
-   <LINKPOINT x="4725" y="7680">
+   <LINKPOINT x="4725" y="7650">
    </LINKPOINT>
-   <LINKPOINT x="1530" y="7680">
+   <LINKPOINT x="1530" y="7620">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="11" srcpinname="Texture Out" dstnodeid="16" dstpinname="Input Node">
-   </LINK>
-   <LINK srcnodeid="18" srcpinname="Output Node" dstnodeid="2" dstpinname="Texture In" linkstyle="VHV">
-   <LINKPOINT x="4725" y="7680">
-   </LINKPOINT>
-   <LINKPOINT x="4605" y="7680">
-   </LINKPOINT>
    </LINK>
    <LINK srcnodeid="20" srcpinname="XY" dstnodeid="2" dstpinname="sizeXY">
    </LINK>
@@ -421,5 +421,25 @@
    <LINK srcnodeid="8" srcpinname="Texture Out" dstnodeid="1" dstpinname="Texture In">
    </LINK>
    <LINK srcnodeid="1" srcpinname="Texture Out" dstnodeid="7" dstpinname="Texture In">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Texture Out" dstnodeid="2" dstpinname="Texture In">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="27" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1785" top="6345" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1785" top="6345" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="1,1,1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="27" srcpinname="Y Output Value" dstnodeid="11" dstpinname="scaleXYZ">
    </LINK>
    </PATCH>
