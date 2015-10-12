@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\Sandbox (Kinect2 Optitrack).v4p" scrollx="0" scrolly="10395" systemname="Sandbox (Kinect2 Optitrack)" filename="C:\vvvv\projects\vvvv.sandgame\Sandbox (Kinect2 Optitrack).v4p">
+   <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\Sandbox (Kinect2 Optitrack).v4p" scrollx="0" scrolly="1680" systemname="Sandbox (Kinect2 Optitrack)" filename="C:\vvvv\projects\vvvv.sandgame\Sandbox (Kinect2 Optitrack).v4p">
    <BOUNDS type="Window" left="4830" top="1710" width="22245" height="15030">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
@@ -1727,7 +1727,7 @@
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
-   <PIN pinname="Y" slicecount="1" values="0">
+   <PIN pinname="Y" slicecount="1" values="-0.1">
    </PIN>
    <PIN pinname="X" slicecount="1" visible="1" values="0.0240336207905785">
    </PIN>
