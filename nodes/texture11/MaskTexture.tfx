@@ -6,6 +6,7 @@
 Texture2D texture2d : PREVIOUS;
 Texture2D mask;
 Texture2D replace;
+bool doMask = true;
 SamplerState linearSampler : IMMUTABLE
 {
     Filter = MIN_MAG_MIP_LINEAR;
@@ -24,11 +25,15 @@ float4 PS_replace(psInput input) : SV_Target
 	float4 c = texture2d.Sample(linearSampler,input.uv);
 	float4 r = replace.Sample(linearSampler,input.uv);
 	float4 m = mask.Sample(linearSampler,input.uv);
-	float3 mix = c.xyz*m.xyz+ r.xyz*(1.0-m.xyz);
-	return float4(mix, 1);
+	if(doMask)
+	{	float3 mix = c.xyz*m.xyz+ r.xyz*(1.0-m.xyz);
+		return float4(mix, 1);
+	}
+	else
+		return c;
 }
 
-technique10 Process
+technique10 Replace
 {
 	pass P0
 	{

@@ -4,7 +4,7 @@
 //@credits: 
 
 Texture2D texture2d : PREVIOUS;
-
+Texture2D control;
 float minimumFill = 0.5;
 float2 size;
 float speed = 0.01;
@@ -37,13 +37,14 @@ float4 PS(psInput input) : SV_Target
 		}
 	}
 	
-	float4 c = texture2d.Sample(linearSampler,input.uv);
+	float4 col = texture2d.Sample(linearSampler,input.uv);
+	float4 con = control.Sample(linearSampler,input.uv);
 	if(count>=growingNeighbourhood[0] && count<=growingNeighbourhood[1])
-		return c+speed;
+		return col+speed*con;
 	else if(count>growingNeighbourhood[1])
-		return c-speed;
+		return col-speed*con;
 	else
-		return c;
+		return col*con;
 	
 }
 

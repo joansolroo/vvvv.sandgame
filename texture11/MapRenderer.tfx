@@ -1,0 +1,112 @@
+//@author: vux
+//@help: template for texture fx
+//@tags: texture
+//@credits: 
+
+Texture2D texture2d : PREVIOUS;
+Texture2D levels;
+float4 color <bool color=true;String uiname="Color";> = { 1.0f,1.0f,1.0f,1.0f };
+SamplerState linearSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+///Converting pure hue to RGB
+
+  float3 HUEtoRGB(in float H)
+  {
+    float R = abs(H * 6 - 3) - 1;
+    float G = 2 - abs(H * 6 - 2);
+    float B = 2 - abs(H * 6 - 4);
+    return saturate(float3(R,G,B));
+  }
+///Converting RGB to hue/chroma/value
+
+  float Epsilon = 1e-10;
+ 
+  float3 RGBtoHCV(in float3 RGB)
+  {
+    // Based on work by Sam Hocevar and Emil Persson
+    float4 P = (RGB.g < RGB.b) ? float4(RGB.bg, -1.0, 2.0/3.0) : float4(RGB.gb, 0.0, -1.0/3.0);
+    float4 Q = (RGB.r < P.x) ? float4(P.xyw, RGB.r) : float4(RGB.r, P.yzx);
+    float C = Q.x - min(Q.w, Q.y);
+    float H = abs((Q.w - Q.y) / (6 * C + Epsilon) + Q.z);
+    return float3(H, C, Q.x);
+  }
+///Converting HSV to RGB
+
+  float3 HSVtoRGB(in float3 HSV)
+  {
+    float3 RGB = HUEtoRGB(HSV.x);
+    return ((RGB - 1) * HSV.y + 1) * HSV.z;
+  }
+///Converting HSL to RGB
+
+  float3 HSLtoRGB(in float3 HSL)
+  {
+    float3 RGB = HUEtoRGB(HSL.x);
+    float C = (1 - abs(2 * HSL.z - 1)) * HSL.y;
+    return (RGB - 0.5) * C + HSL.z;
+  }
+
+//Converting RGB to HSV
+
+  float3 RGBtoHSV(in float3 RGB)
+  {
+    float3 HCV = RGBtoHCV(RGB);
+    float S = HCV.y / (HCV.z + Epsilon);
+    return float3(HCV.x, S, HCV.z);
+  }
+//Converting RGB to HSL
+
+  float3 RGBtoHSL(in float3 RGB)
+  {
+    float3 HCV = RGBtoHCV(RGB);
+    float L = HCV.z - HCV.y * 0.5;
+    float S = HCV.y / (1 - abs(L * 2 - 1) + Epsilon);
+    return float3(HCV.x, S, L);
+  }
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+
+float4 PS(psInput input) : SV_Target
+{
+	float4 c = texture2d.Sample(linearSampler,input.uv);
+	return c;
+}
+
+technique10 Process
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS()));
+	}
+}
+float4 PS_Levels(psInput input) : SV_Target
+{
+	float4 c = texture2d.Sample(linearSampler,input.uv);
+	//c.rgb = HSLtoRGB(float3(RGBtoHSL(c.rgb).r,RGBtoHSL(color.rgb).gb));
+	float4 e = levels.Sample(linearSampler,input.uv);
+	if(e.x >0.5)
+		return float4(1,1,1,1);
+	else
+		return c;
+	
+}
+
+technique10 Levels
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_Levels()));
+	}
+}
+
+
+
+

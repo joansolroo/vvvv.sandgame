@@ -69,19 +69,19 @@
    </PIN>
    </NODE>
    <NODE systemname="TextureGradient (DX11.TextureFX)" filename="..\texture11\TextureGradient.tfx" nodename="TextureGradient (DX11.TextureFX)" componentmode="Hidden" id="2">
-   <BOUNDS type="Node" left="4575" top="8370" width="100" height="100">
+   <BOUNDS type="Node" left="4605" top="8685" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
-   <PIN pinname="sizeXY" visible="1" slicecount="2" values="512,512">
+   <PIN pinname="sizeXY" visible="1" slicecount="2" values="64,64">
    </PIN>
    <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
    <PIN pinname="Technique" slicecount="1" values="Process_normalize">
    </PIN>
-   <PIN pinname="gradientScale" slicecount="1" values="0.0013">
+   <PIN pinname="gradientScale" slicecount="1" values="0.00249999994412065">
    </PIN>
    </NODE>
    <NODE systemname="Invert (DX11.TextureFX)" filename="%VVVV%\packs\dx11\nodes\texture11\Filter\Invert.tfx" nodename="Invert (DX11.TextureFX)" componentmode="Hidden" id="3">
@@ -423,23 +423,5 @@
    <LINK srcnodeid="1" srcpinname="Texture Out" dstnodeid="7" dstpinname="Texture In">
    </LINK>
    <LINK srcnodeid="11" srcpinname="Texture Out" dstnodeid="2" dstpinname="Texture In">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="27" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1785" top="6345" width="795" height="720">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1785" top="6345" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="1,1,1">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="3">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="27" srcpinname="Y Output Value" dstnodeid="11" dstpinname="scaleXYZ">
    </LINK>
    </PATCH>

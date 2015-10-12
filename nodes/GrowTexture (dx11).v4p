@@ -35,6 +35,8 @@
    </PIN>
    <PIN pinname="growingNeighbourhoodXY" visible="1">
    </PIN>
+   <PIN pinname="control" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <NODE systemname="Info (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Info (DX11.Texture 2d)" componentmode="Hidden" id="3">
    <BOUNDS type="Node" left="4350" top="3330" width="100" height="100">
@@ -115,9 +117,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="9" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="2655" top="1500" width="795" height="240">
+   <BOUNDS type="Box" left="180" top="765" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2655" top="1500" width="0" height="0">
+   <BOUNDS type="Node" left="180" top="765" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" values="Seed">
    </PIN>
@@ -250,7 +252,11 @@
    </NODE>
    <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="2" dstpinname="growingNeighbourhoodXY">
    </LINK>
-   <LINK srcnodeid="9" srcpinname="Output Node" dstnodeid="1" dstpinname="Texture In">
+   <LINK srcnodeid="9" srcpinname="Output Node" dstnodeid="1" dstpinname="Texture In" linkstyle="VHV">
+   <LINKPOINT x="240" y="1643">
+   </LINKPOINT>
+   <LINKPOINT x="2610" y="1643">
+   </LINKPOINT>
    </LINK>
    <LINK srcnodeid="1" srcpinname="Texture Out" dstnodeid="3" dstpinname="Texture In">
    <LINKPOINT x="2730" y="2595">
@@ -265,9 +271,13 @@
    </PIN>
    <PIN pinname="mask" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="replace" visible="1">
+   <PIN pinname="replace" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Technique" slicecount="1" values="Mask">
+   <PIN pinname="Technique" slicecount="1" visible="1" values="Replace">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="doMask" visible="1" slicecount="1" values="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="19" systemname="IOBox (Node)">
@@ -302,8 +312,52 @@
    <LINKPOINT x="300" y="2850">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="9" srcpinname="Output Node" dstnodeid="18" dstpinname="replace">
-   </LINK>
    <LINK srcnodeid="18" srcpinname="Texture Out" dstnodeid="5" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Texture Out" dstnodeid="18" dstpinname="replace">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="22" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1350" top="540" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1350" top="540" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="doMask">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="18" dstpinname="doMask">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="23" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="1725" top="1230" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1725" top="1230" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Replace">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Output Enum" dstnodeid="18" dstpinname="Technique">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="24" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="5460" top="1665" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5460" top="1665" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="control">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="24" srcpinname="Output Node" dstnodeid="2" dstpinname="control">
    </LINK>
    </PATCH>

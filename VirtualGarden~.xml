@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\VirtualGarden.v4p" systemname="VirtualGarden" filename="C:\vvvv\projects\vvvv.sandgame\VirtualGarden.v4p" scrollx="0" scrolly="9780">
-   <BOUNDS type="Window" left="0" top="810" width="29640" height="13485">
+   <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\VirtualGarden.v4p" systemname="VirtualGarden" filename="C:\vvvv\projects\vvvv.sandgame\VirtualGarden.v4p" scrollx="0" scrolly="27705">
+   <BOUNDS type="Window" left="9885" top="2190" width="16620" height="13485">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
@@ -190,7 +190,7 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="Elements">
    </PIN>
    </NODE>
-   <NODE systemname="GrowTexture (dx11)" filename="nodes\GrowTexture (dx11).v4p" nodename="nodes\GrowTexture (dx11).v4p" componentmode="InAWindow" id="731">
+   <NODE systemname="GrowTexture (dx11)" filename="nodes\GrowTexture (dx11).v4p" nodename="nodes\GrowTexture (dx11).v4p" componentmode="Hidden" id="731">
    <BOUNDS type="Node" left="29238" top="33512" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="25691" top="29215" width="7095" height="8595">
@@ -261,7 +261,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="31020" top="32430" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.03">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -272,7 +272,7 @@
    <LINKPOINT x="31230" y="32760">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="GrowTexture (dx11)" filename="nodes\GrowTexture (dx11).v4p" nodename="nodes\GrowTexture (dx11).v4p" componentmode="InAWindow" id="740">
+   <NODE systemname="GrowTexture (dx11)" filename="nodes\GrowTexture (dx11).v4p" nodename="nodes\GrowTexture (dx11).v4p" componentmode="Hidden" id="740">
    <BOUNDS type="Node" left="23448" top="43187" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="19901" top="38890" width="7095" height="8595">
@@ -487,7 +487,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="16740" top="42660" width="375" height="270">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.1">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.29">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -611,7 +611,7 @@
    </PIN>
    <PIN pinname="mask" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="topography" visible="1">
+   <PIN pinname="topography" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="164" srcpinname="Y Output Value" dstnodeid="930" dstpinname="heightRangeXY" linkstyle="Bezier" hiddenwhenlocked="1">
@@ -787,7 +787,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="8265" top="17745" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="43185" top="6900" width="13050" height="10890">
+   <BOUNDS type="Window" left="41895" top="4380" width="13050" height="10890">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
@@ -1121,7 +1121,7 @@
    </PIN>
    <PIN pinname="mask" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="topography" visible="1">
+   <PIN pinname="topography" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE id="834" systemname="RenderLayer (DX11.TextureFX)" filename="texture11\RenderLayer.tfx" nodename="RenderLayer (DX11.TextureFX)" componentmode="Hidden">
@@ -1353,7 +1353,7 @@
    </PIN>
    <PIN pinname="mask" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="topography" visible="1">
+   <PIN pinname="topography" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE id="177" systemname="TopologySelector (DX11.TextureFX)" filename="texture11\TopologySelector.tfx" nodename="TopologySelector (DX11.TextureFX)" componentmode="Hidden">
@@ -1383,7 +1383,7 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Rock">
    </PIN>
-   <PIN pinname="topography" visible="1">
+   <PIN pinname="topography" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE id="860" nodename="IOBox (Value Advanced)" componentmode="InABox" systemname="IOBox (Value Advanced)">
@@ -1433,7 +1433,7 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Sand">
    </PIN>
-   <PIN pinname="topography" visible="1">
+   <PIN pinname="topography" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE id="962" nodename="IOBox (Value Advanced)" componentmode="InABox" systemname="IOBox (Value Advanced)" hiddenwhenlocked="0" managers="">
@@ -1593,7 +1593,7 @@
    </PIN>
    <PIN pinname="mask" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="topography" visible="1">
+   <PIN pinname="topography" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE id="337" systemname="MaskLayer (DX11.TextureFX)" filename="texture11\MaskLayer.tfx" nodename="MaskLayer (DX11.TextureFX)" componentmode="Hidden">
@@ -1693,7 +1693,7 @@
    </PIN>
    <PIN pinname="Amplitude" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="Height - Width" slicecount="1" values="256">
+   <PIN pinname="Height - Width" slicecount="1" visible="1" values="256">
    </PIN>
    <PIN pinname="Change" slicecount="1" visible="1" values="0">
    </PIN>
@@ -1749,7 +1749,7 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="SEA">
    </PIN>
-   <PIN pinname="topography" visible="1">
+   <PIN pinname="topography" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE id="335" systemname="MaskLayer (DX11.TextureFX)" filename="texture11\MaskLayer.tfx" nodename="MaskLayer (DX11.TextureFX)" componentmode="Hidden">
@@ -2438,7 +2438,7 @@
    <PIN pinname="Change" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <NODE systemname="RenderIndexedGeometry" filename="Subpatches\RenderIndexedGeometry.v4p" nodename="Subpatches\RenderIndexedGeometry.v4p" componentmode="InAWindow" id="1068">
+   <NODE systemname="RenderIndexedGeometry" filename="Subpatches\RenderIndexedGeometry.v4p" nodename="Subpatches\RenderIndexedGeometry.v4p" componentmode="Hidden" id="1068">
    <BOUNDS type="Node" left="16521" top="43478" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Window" left="0" top="0" width="17685" height="13605">
@@ -2652,8 +2652,6 @@
    <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="1030" srcpinname="Input Value" dstnodeid="1080" dstpinname="Input Node">
-   </LINK>
    <LINK srcnodeid="1080" srcpinname="Output Node" dstnodeid="1031" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="1081" systemname="IOBox (Node)">
@@ -2751,7 +2749,7 @@
    </PIN>
    <PIN pinname="mask" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="topography" visible="1">
+   <PIN pinname="topography" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE id="1094" systemname="MaskLayer (DX11.TextureFX)" filename="texture11\MaskLayer.tfx" nodename="MaskLayer (DX11.TextureFX)" componentmode="Hidden">
@@ -3083,7 +3081,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="10110" top="37110" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="0.5,0.95">
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="0.5,0.41">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -3287,7 +3285,7 @@
    </PIN>
    <PIN pinname="Rotate XYZ" visible="1" slicecount="3" values="0.25,0,0">
    </PIN>
-   <PIN pinname="Scale XYZ" slicecount="3" values="1.0001,1.0001,1.0001" visible="1">
+   <PIN pinname="Scale XYZ" slicecount="3" visible="1" values="1.0001,1.0001,1.0001">
    </PIN>
    <PIN pinname="Translate XYZ" visible="1" slicecount="3" values="0,0,0">
    </PIN>
@@ -3738,7 +3736,7 @@
    </NODE>
    <LINK srcnodeid="1250" srcpinname="Bang" dstnodeid="1074" dstpinname="Y Input Value">
    </LINK>
-   <NODE id="1265" systemname="Object3D-treeBox" filename="Subpatches\Object3D-treeBox.v4p" nodename="Subpatches\Object3D-treeBox.v4p" componentmode="InAWindow" hiddenwhenlocked="0" managers="">
+   <NODE id="1265" systemname="Object3D-treeBox" filename="Subpatches\Object3D-treeBox.v4p" nodename="Subpatches\Object3D-treeBox.v4p" componentmode="Hidden" hiddenwhenlocked="0" managers="">
    <PIN pinname="Texture out" visible="1" pintype="Output">
    </PIN>
    <PIN pinname="Transform Out" visible="1" pintype="Output">
@@ -3765,7 +3763,7 @@
    </PIN>
    <PIN pinname="ID" pintype="Output" visible="-1">
    </PIN>
-   <PIN pinname="scale" visible="1" slicecount="3" values="0.13,0.13,0.13">
+   <PIN pinname="scale" visible="1" slicecount="3" values="0.14,0.14,0.14">
    </PIN>
    </NODE>
    <LINK srcnodeid="1265" srcpinname="Texture out" dstnodeid="1068" dstpinname="Object color">
@@ -3791,10 +3789,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="1266" srcpinname="Y Output Value" dstnodeid="1250" dstpinname="Simulate">
-   </LINK>
-   <LINK srcnodeid="1265" srcpinname="Geometry out" dstnodeid="1068" dstpinname="Geometry In">
-   </LINK>
-   <LINK srcnodeid="1265" srcpinname="Transform Out" dstnodeid="1068" dstpinname="Local transform">
    </LINK>
    <NODE systemname="Threshold (DX11.TextureFX)" filename="%VVVV%\packs\dx11\nodes\texture11\Filter\Threshold.tfx" nodename="Threshold (DX11.TextureFX)" componentmode="Hidden" id="1273">
    <BOUNDS type="Node" left="11070" top="36525" width="100" height="100">
@@ -3847,7 +3841,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3555" top="10350" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="1.01,0.62,1.01">
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="1.01,0.29,1.01">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -4117,5 +4111,85 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="1296" srcpinname="Color Output" dstnodeid="1291" dstpinname="Color">
+   </LINK>
+   <LINK srcnodeid="1036" srcpinname="Y Output Value" dstnodeid="1265" dstpinname="Generate texture">
+   </LINK>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="1297">
+   <BOUNDS type="Node" left="9150" top="6315" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9150" top="6315" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="17730" top="2415" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1020" srcpinname="Output Node" dstnodeid="1297" dstpinname="Texture In">
+   </LINK>
+   <LINK srcnodeid="1030" srcpinname="Input Value" dstnodeid="1080" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="1299">
+   <BOUNDS type="Node" left="8235" top="23220" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View Projection" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="RGB (Color Join)" nodename="RGB (Color Join)" componentmode="Hidden" id="1300">
+   <BOUNDS type="Node" left="13995" top="37170" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Green" slicecount="2" visible="1" values="0,0">
+   </PIN>
+   <PIN pinname="Red" slicecount="1" visible="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1300" srcpinname="Output" dstnodeid="1075" dstpinname="Color Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="1302" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="14085" top="36510" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="14085" top="36510" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.52">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1302" srcpinname="Y Output Value" dstnodeid="1300" dstpinname="Red">
+   </LINK>
+   <LINK srcnodeid="1302" srcpinname="Y Output Value" dstnodeid="1300" dstpinname="Green">
+   </LINK>
+   <LINK srcnodeid="1265" srcpinname="Transform Out" dstnodeid="1068" dstpinname="Local transform">
+   </LINK>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="1304">
+   <BOUNDS type="Node" left="19440" top="41970" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="19440" top="41970" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="21735" top="11415" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="933" srcpinname="Texture Out" dstnodeid="1304" dstpinname="Texture In">
+   </LINK>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="1306">
+   <BOUNDS type="Node" left="29055" top="36930" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="29055" top="36930" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="36360" top="6660" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="932" srcpinname="Texture Out" dstnodeid="1306" dstpinname="Texture In">
+   </LINK>
+   <LINK srcnodeid="1265" srcpinname="Geometry out" dstnodeid="1068" dstpinname="Geometry In">
    </LINK>
    </PATCH>

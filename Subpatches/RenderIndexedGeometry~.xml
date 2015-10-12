@@ -57,6 +57,8 @@
    </BOUNDS>
    <PIN pinname="Enable" slicecount="1" visible="1" values="1">
    </PIN>
+   <PIN pinname="XYZ Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <LINK srcnodeid="49" srcpinname="Y Output Value" dstnodeid="48" dstpinname="Resolution">
    </LINK>
@@ -343,5 +345,17 @@
    <LINK srcnodeid="50" srcpinname="Y Output Value" dstnodeid="42" dstpinname="Enabled">
    </LINK>
    <LINK srcnodeid="43" srcpinname="Output Node" dstnodeid="48" dstpinname="Object color">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="52" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="5490" top="5925" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5490" top="5925" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|XYZ Transform In|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="52" srcpinname="Output Node" dstnodeid="48" dstpinname="XYZ Transform In">
    </LINK>
    </PATCH>

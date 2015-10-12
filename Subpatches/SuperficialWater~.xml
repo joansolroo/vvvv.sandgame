@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\Subpatches\SuperficialWater.v4p" systemname="SuperficialWater" filename="C:\vvvv\projects\vvvv.sandgame\Subpatches\SuperficialWater.v4p" scrollx="540" scrolly="0">
-   <BOUNDS type="Window" left="0" top="0" width="15120" height="11685">
+   <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\Subpatches\SuperficialWater.v4p" systemname="SuperficialWater" filename="C:\vvvv\projects\vvvv.sandgame\Subpatches\SuperficialWater.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="4095" top="390" width="16545" height="11310">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
@@ -24,6 +24,10 @@
    <PIN pinname="lakeFactor" slicecount="1" visible="1" values="0.005">
    </PIN>
    <PIN pinname="Enabled" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="biomeLayers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="maxDelta" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="Info (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Info (DX11.Texture 2d)" componentmode="Hidden" id="50">
@@ -174,7 +178,7 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Superficial water|">
    </PIN>
    </NODE>
-   <NODE systemname="AnimateTexture" filename="..\nodes\AnimateTexture.v4p" nodename="nodes\AnimateTexture.v4p" componentmode="InAWindow" id="41">
+   <NODE systemname="AnimateTexture" filename="..\nodes\AnimateTexture.v4p" nodename="nodes\AnimateTexture.v4p" componentmode="Hidden" id="41">
    <BOUNDS type="Node" left="9675" top="8820" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="6685" top="5535" width="5980" height="6570">
@@ -183,7 +187,7 @@
    </BOUNDS>
    <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Period" slicecount="1" values="1">
+   <PIN pinname="Period" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
@@ -197,7 +201,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="10095" top="6705" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="40">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="10">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -219,7 +223,7 @@
    </PIN>
    <PIN pinname="Rows" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="maskRangeXYZ">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|not river range&quot;|">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
@@ -252,7 +256,7 @@
    <PIN pinname="Enabled" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <NODE id="36" componentmode="InAWindow" systemname="ComputeDistance" filename="..\nodes\ComputeDistance.v4p" nodename="nodes\ComputeDistance.v4p" hiddenwhenlocked="0" managers="">
+   <NODE id="36" componentmode="Hidden" systemname="ComputeDistance" filename="..\nodes\ComputeDistance.v4p" nodename="nodes\ComputeDistance.v4p" hiddenwhenlocked="0" managers="">
    <PIN pinname="Distance mask" visible="1">
    </PIN>
    <PIN pinname="maskRangeXYZ" visible="1" slicecount="3" values="0.14,1,1.01">
@@ -295,7 +299,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="5310" top="4215" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.41">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.6">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -315,7 +319,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="6330" top="4200" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.005">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -335,7 +339,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="4395" top="4245" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="-0.01">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="-0.1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -398,18 +402,6 @@
    </NODE>
    <LINK srcnodeid="30" srcpinname="Y Output Value" dstnodeid="31" dstpinname="Simulate">
    </LINK>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="29" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="3555" top="885" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="3555" top="885" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="seaMask">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="29" srcpinname="Output Node" dstnodeid="51" dstpinname="seaMask">
-   </LINK>
    <NODE systemname="CountNeighbours (DX11.TextureFX)" filename="..\texture11\CountNeighbours.tfx" nodename="CountNeighbours (DX11.TextureFX)" componentmode="Hidden" id="28">
    <BOUNDS type="Node" left="3060" top="6660" width="100" height="100">
    </BOUNDS>
@@ -429,16 +421,6 @@
    </LINKPOINT>
    <LINKPOINT x="4065" y="5833">
    </LINKPOINT>
-   </LINK>
-   <NODE systemname="R (Node)" nodename="R (Node)" componentmode="Hidden" id="27">
-   <BOUNDS type="Node" left="3330" top="2565" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Receive String" slicecount="1" values="|Texture - Topography|">
-   </PIN>
-   <PIN pinname="Input Value" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="27" srcpinname="Input Value" dstnodeid="48" dstpinname="Input Node">
    </LINK>
    <NODE systemname="Levels (DX11.TextureFX)" filename="%VVVV%\packs\dx11\nodes\texture11\Filter\Levels.tfx" nodename="Levels (DX11.TextureFX)" componentmode="Hidden" id="52">
    <BOUNDS type="Node" left="4680" top="7260" width="100" height="100">
@@ -642,7 +624,7 @@
    </LINK>
    <LINK srcnodeid="61" srcpinname="Texture Out" dstnodeid="41" dstpinname="Texture In">
    </LINK>
-   <NODE systemname="AnimateTexture" filename="..\nodes\AnimateTexture.v4p" nodename="nodes\AnimateTexture.v4p" componentmode="InAWindow" id="68">
+   <NODE systemname="AnimateTexture" filename="..\nodes\AnimateTexture.v4p" nodename="nodes\AnimateTexture.v4p" componentmode="Hidden" id="68">
    <BOUNDS type="Node" left="11895" top="8880" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="8905" top="5595" width="5980" height="6570">
@@ -651,7 +633,7 @@
    </BOUNDS>
    <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Period" slicecount="1" values="1">
+   <PIN pinname="Period" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
@@ -697,7 +679,7 @@
    </PIN>
    <PIN pinname="Rows" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="maskRangeXYZ">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|irrigated range|">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
@@ -749,5 +731,49 @@
    <LINK srcnodeid="58" srcpinname="Y Output Value" dstnodeid="61" dstpinname="Enabled">
    </LINK>
    <LINK srcnodeid="67" srcpinname="Y Output Value" dstnodeid="41" dstpinname="Reset">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="69" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="14130" top="8280" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="14130" top="8280" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="10">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="s">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="69" srcpinname="Y Output Value" dstnodeid="68" dstpinname="Period">
+   </LINK>
+   <LINK srcnodeid="69" srcpinname="Y Output Value" dstnodeid="41" dstpinname="Period">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="70" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="4095" top="1575" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4095" top="1575" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="biomeLayers">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="70" srcpinname="Output Node" dstnodeid="51" dstpinname="biomeLayers">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="71" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5205" top="2040" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5205" top="2040" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0.1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="71" srcpinname="Y Output Value" dstnodeid="51" dstpinname="maxDelta">
    </LINK>
    </PATCH>

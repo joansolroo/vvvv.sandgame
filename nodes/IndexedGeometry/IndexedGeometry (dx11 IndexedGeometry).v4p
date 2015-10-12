@@ -330,7 +330,7 @@
    </NODE>
    <LINK srcnodeid="217" srcpinname="Output Node" dstnodeid="182" dstpinname="Texture Filter">
    </LINK>
-   <NODE systemname="ConstantIndexed (dx11 IndexedGeometry)" filename="ConstantIndexed (dx11 IndexedGeometry).v4p" nodename="ConstantIndexed (dx11 IndexedGeometry).v4p" componentmode="InAWindow" id="226">
+   <NODE systemname="ConstantIndexed (dx11 IndexedGeometry)" filename="ConstantIndexed (dx11 IndexedGeometry).v4p" nodename="ConstantIndexed (dx11 IndexedGeometry).v4p" componentmode="Hidden" id="226">
    <BOUNDS type="Node" left="4495" top="7348" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="0" top="5168" width="12660" height="4360">

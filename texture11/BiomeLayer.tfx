@@ -1,0 +1,100 @@
+//@author: vux
+//@help: template for texture fx
+//@tags: texture
+//@credits: 
+
+Texture2D texture2d : PREVIOUS;
+Texture2D noise;
+float4 color <bool color=true;String uiname="Color";> ;
+float2 dx = {-1,1};
+float2 dy = {-1,1};
+float2 waterLevel = {0,0.05};
+float2 sandLevel = 0.1;
+float2 grassLevel = {0.1,0.5};
+float2 grassGradient = {-1,1};
+float2 forestLevel = {0.1,0.5};
+float2 forestGradient = {-1,1};
+float2 cityLevel = {0.1,0.5};
+float2 cityGradient = {-1,1};
+float snowLevel = 1;
+Texture2D growthCity<String uiname="Growth city";>;
+Texture2D growthGrass<String uiname="Growth grass";>;
+Texture2D growthTrees<String uiname="Growth trees";>;
+Texture2D riverMask<String uiname="River Mask";>;
+SamplerState linearSampler : IMMUTABLE
+{
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+struct psInput
+{
+	float4 p : SV_Position;
+	float2 uv : TEXCOORD0;
+};
+
+
+float4 PS(psInput input) : SV_Target
+{
+	float4 c = texture2d.Sample(linearSampler,input.uv);
+	float4 n = noise.Sample(linearSampler,input.uv);
+	float4 gg = growthGrass.Sample(linearSampler,input.uv);
+	float4 gt = growthTrees.Sample(linearSampler,input.uv);
+	float4 gc = growthCity.Sample(linearSampler,input.uv);
+	float4 river = riverMask.Sample(linearSampler,input.uv);
+	if (c.x>=snowLevel)
+		return float4(1,1,1,1)*n*color;
+	else if(c.x< waterLevel[0])
+		return float4(0,0,1,1)*n*color;
+	else if(c.x>= waterLevel[0] && c.x< waterLevel[1])
+		return float4(0,1,1,1)*n*color;
+	//else if(river.r >0.8)
+	//	 return float4(0,1,1,1)*n*color;
+	else if(c.x>= waterLevel[0] && c.x< waterLevel[1])
+		return float4(0,1,1,1)*n*color;
+	else if (c.x>= sandLevel[0] && c.x< sandLevel[1])
+		return float4(1,1,0,1)*n*color;
+	//else if(c.x>=cityLevel[0] && c.x<cityLevel[1] && c.y >= cityGradient[0] && c.y < cityGradient[1] && c.z >= cityGradient[0] && c.z < cityGradient[1] )
+	//	return float4(1,1,0.5,1)*n*gc;
+	else if(c.x>=grassLevel[0] && c.x<grassLevel[1] && c.y >= grassGradient[0] && c.y < grassGradient[1] && c.z >= grassGradient[0] && c.z < grassGradient[1] )
+		return float4(0,1,0,1)*n*gg*color;
+	else if(c.x>=forestLevel[0] && c.x<forestLevel[1] && c.y >=forestGradient[0] && c.y < forestGradient[1] && c.z >= forestGradient[0] && c.z < forestGradient[1] )
+		return float4(0,0.5,0,1)*n*gt*color;
+	
+	else
+		return float4(0.5,0.5,0,1)*n*color;
+}
+
+technique10 Process
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS()));
+	}
+}
+
+float4 PS_WB(psInput input) : SV_Target
+{
+	float4 c = texture2d.Sample(linearSampler,input.uv);
+	float4 n = noise.Sample(linearSampler,input.uv);
+	float h = c.y/0.1;
+	int levels = 10;
+	int level = round(h*levels*levels)/levels;
+	int s = round(h*levels*levels)%levels;
+	if(s > levels/2 )
+		return float4(1,1,1,1)*n;
+	else
+		return float4(0,0,0,1)*n;
+}
+
+technique10 BlackandWhite
+{
+	pass P0
+	{
+		SetPixelShader(CompileShader(ps_4_0,PS_WB()));
+	}
+}
+
+
+
