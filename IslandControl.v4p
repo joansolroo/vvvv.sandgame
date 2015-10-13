@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\IslandControl.v4p" systemname="IslandControl" filename="C:\vvvv\projects\vvvv.sandgame\IslandControl.v4p" scrollx="2670" scrolly="1545">
+   <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\IslandControl.v4p" systemname="IslandControl" filename="C:\vvvv\projects\vvvv.sandgame\IslandControl.v4p" scrollx="2745" scrolly="0">
    <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="1">
    <BOUNDS type="Node" left="975" top="10245" width="100" height="100">
    </BOUNDS>
@@ -1410,7 +1410,7 @@
    </LINK>
    <LINK srcnodeid="123" srcpinname="Texture Out" dstnodeid="125" dstpinname="Input Node">
    </LINK>
-   <NODE systemname="PeriodicWave (Animation)" filename="nodes\PeriodicWave (Animation).v4p" nodename="PeriodicWave (Animation)" componentmode="InAWindow" id="153">
+   <NODE systemname="PeriodicWave (Animation)" filename="nodes\PeriodicWave (Animation).v4p" nodename="PeriodicWave (Animation)" componentmode="Hidden" id="153">
    <BOUNDS type="Node" left="9630" top="855" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Wave [0,1]" visible="1">
@@ -1441,7 +1441,7 @@
    </BOUNDS>
    <PIN pinname="X" visible="1">
    </PIN>
-   <PIN pinname="Y" slicecount="1" values="0.02" visible="1">
+   <PIN pinname="Y" slicecount="1" visible="1" values="0.02">
    </PIN>
    <PIN pinname="XY" visible="1">
    </PIN>
@@ -1549,5 +1549,25 @@
    <LINK srcnodeid="147" srcpinname="Texture Out" dstnodeid="139" dstpinname="Input Node">
    </LINK>
    <LINK srcnodeid="147" srcpinname="Texture Out" dstnodeid="6" dstpinname="Texture">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="168" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="8415" top="2565" width="795" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8415" top="2565" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="0.019,0.02">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="waterLevelXY">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="154" srcpinname="XY" dstnodeid="168" dstpinname="Y Input Value">
    </LINK>
    </PATCH>
