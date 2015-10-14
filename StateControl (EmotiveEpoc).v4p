@@ -1,0 +1,383 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\projects\vvvv.sandgame\StateControl (EmotiveEpoc).v4p" systemname="StateControl (EmotiveEpoc)" filename="C:\vvvv\projects\vvvv.sandgame\StateControl (EmotiveEpoc).v4p" scrollx="5595" scrolly="4245">
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="0" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="1500" top="1500" width="5100" height="450">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1500" top="1500" width="5100" height="450">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Affectiv (EmoState)|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" visible="1" values="14">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="1" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="1500" top="1875" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1500" top="1875" width="5100" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Exposes the Affectiv properties of an EmoState, i.e. Excitement, Engagement, etc|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="Affectiv (EmoState)" componentmode="Hidden" id="2" systemname="Affectiv (EmoState)" filename="..\..\contributions\plugins\vvvv.emotiv.epoc\bin\DeviceEmotivEpoc.dll">
+   <BOUNDS type="Node" left="2085" top="6105" width="12285" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2085" top="6105" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="EmoState" visible="1">
+   </PIN>
+   <PIN pinname="Long Term Excitement Score" visible="1">
+   </PIN>
+   <PIN pinname="Short Term Excitement Score" visible="1">
+   </PIN>
+   <PIN pinname="Short Term Excitement Model Params" visible="1">
+   </PIN>
+   <PIN pinname="Short Term Excitement Scaled Score" visible="1">
+   </PIN>
+   <PIN pinname="Meditation Score" visible="1">
+   </PIN>
+   <PIN pinname="Meditation Model Params" visible="1">
+   </PIN>
+   <PIN pinname="Meditation Scaled Score" visible="1">
+   </PIN>
+   <PIN pinname="Frustration Score" visible="1">
+   </PIN>
+   <PIN pinname="Frustration Model Params" visible="1">
+   </PIN>
+   <PIN pinname="Frustration Scaled Score" visible="1">
+   </PIN>
+   <PIN pinname="Boredom Score" visible="1">
+   </PIN>
+   <PIN pinname="Boredom Model Params" visible="1">
+   </PIN>
+   <PIN pinname="Boredom Scaled Score" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="EmotivEpoc (Device)" filename="..\..\contributions\plugins\vvvv.emotiv.epoc\bin\DeviceEmotivEpoc.dll" nodename="EmotivEpoc (Device)" componentmode="Hidden" id="3">
+   <BOUNDS type="Node" left="2085" top="4080" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Connection Mode" visible="1">
+   </PIN>
+   <PIN pinname="Server" visible="1">
+   </PIN>
+   <PIN pinname="Connect" visible="1">
+   </PIN>
+   <PIN pinname="Connected" visible="1">
+   </PIN>
+   <PIN pinname="EmoState" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="4" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="3240" top="3375" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3240" top="3375" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="EmotivControlPanel">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Connection Mode|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="5" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="2655" top="2745" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2655" top="2745" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="127.0.0.1">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="127.0.0.1">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Server">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="6" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2070" top="3300" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2070" top="3300" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Connect">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="7" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3240" top="4620" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3240" top="4620" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Connected">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="10" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6795" top="3330" width="4515" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6795" top="3330" width="3255" height="1185">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|The &quot;Model params&quot; pins are structured in three components:&cr;&lf;- Raw signal&cr;&lf;- Lower scale factor&cr;&lf;- High scale factor|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="11" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6795" top="4740" width="3630" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6795" top="4740" width="2100" height="525">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|The computed scaled value is on a standalone pin|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="13" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4725" top="9225" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4725" top="9225" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Short Term Excitement Scaled Score|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="14" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5580" top="10485" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5580" top="10485" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Meditation Score|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="17" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="8190" top="6930" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8190" top="6930" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Frustration Score|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="20" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="10830" top="10395" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10830" top="10395" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Boredom Score|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="23" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="10200" top="3330" width="1950" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10200" top="3330" width="2340" height="1185">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Affectiv supports 4 states&cr;&lf;- Excitement&cr;&lf;- Meditation&cr;&lf;- Frustration&cr;&lf;- Boredom|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="24" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="11235" top="2265" width="2745" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11235" top="2265" width="3540" height="375">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|From the SDK documentation: &gt;&gt;&gt;|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="10">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="EmoState" dstnodeid="2" dstpinname="EmoState">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="3" dstpinname="Connect">
+   </LINK>
+   <LINK srcnodeid="5" srcpinname="Output String" dstnodeid="3" dstpinname="Server">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Output Enum" dstnodeid="3" dstpinname="Connection Mode">
+   </LINK>
+   <LINK srcnodeid="3" srcpinname="Connected" dstnodeid="7" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Meditation Score" dstnodeid="14" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Frustration Score" dstnodeid="17" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Boredom Score" dstnodeid="20" dstpinname="Y Input Value">
+   </LINK>
+   <BOUNDS type="Window" left="11085" top="1770" width="15870" height="12825">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE systemname="Expressiv (EmoState)" filename="DeviceEmotivEpoc.dll" nodename="Expressiv (EmoState)" componentmode="Hidden" id="25">
+   <BOUNDS type="Node" left="15165" top="6075" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="15165" top="6075">
+   </BOUNDS>
+   <PIN pinname="EmoState" visible="1">
+   </PIN>
+   <PIN pinname="Smile Extent" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="EmoState" dstnodeid="25" dstpinname="EmoState">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="27" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="8250" top="13260" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8250" top="13260" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="clouds">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="27" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="28" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4695" top="13200" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4695" top="13200" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Water level|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="28" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="29" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="13395" top="13290" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="13395" top="13290" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Smile Extent|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="25" srcpinname="Smile Extent" dstnodeid="29" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="36" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="10125" top="14595" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10125" top="14595" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|night duration|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="20" srcpinname="Y Output Value" dstnodeid="36" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="linechqrt" filename="linechqrt.v4p" nodename="linechqrt.v4p" componentmode="InABox" id="37">
+   <BOUNDS type="Node" left="13395" top="14205" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="13395" top="14205" width="3105" height="1380">
+   </BOUNDS>
+   <BOUNDS type="Window" left="-1" top="-1" width="3015" height="3525">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="37" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="38" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2145" top="9795" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2145" top="9795" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Long Term Excitement Score|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="Long Term Excitement Score" dstnodeid="38" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Short Term Excitement Score" dstnodeid="13" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="39" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="14745" top="13275" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="14745" top="13275" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Smile Extent|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="39" dstpinname="Y Input Value">
+   </LINK>
+   </PATCH>
