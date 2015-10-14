@@ -44,7 +44,7 @@ float4 PS(psInput input) : SV_Target
 	float4 gt = growthTrees.Sample(linearSampler,input.uv);
 	float4 gc = growthCity.Sample(linearSampler,input.uv);
 	float4 river = riverMask.Sample(linearSampler,input.uv);
-	if (c.x>=snowLevel)
+	if (c.x>=snowLevel )
 		return float4(1,1,1,1);
 	if(c.x< waterLevel[1]){
 		c.r = c.r+(n.r-0.5)*0.001;
@@ -57,15 +57,16 @@ float4 PS(psInput input) : SV_Target
 	//	 return float4(0,1,1,1)*n*color;
 	if (c.x>= sandLevel[0] && c.x< sandLevel[1]&& c.y >= grassGradient[0] && c.y < grassGradient[1] && c.z >= grassGradient[0] && c.z < grassGradient[1] )
 		return float4(1,1,0,1);
-	if(c.x>=cityLevel[0] && c.x<cityLevel[1] && c.y >= cityGradient[0] && c.y < cityGradient[1] && c.z >= cityGradient[0] && c.z < cityGradient[1] )
+	if(gc.x>0.9 && c.x>=cityLevel[0] && c.x<cityLevel[1] && c.y >= cityGradient[0] && c.y < cityGradient[1] && c.z >= cityGradient[0] && c.z < cityGradient[1] )
 		return float4(1,1,0.5,1)*gc;
 	else{
+		if(gt.x> 0.9 && c.x>=forestLevel[0] && c.x<forestLevel[1] && c.y >=forestGradient[0] && c.y < forestGradient[1] && c.z >= forestGradient[0] && c.z < forestGradient[1] )
+		return float4(0,0.5,0,1)*gt;
 		if(c.x>=grassLevel[0] && c.x<grassLevel[1] && c.y >= grassGradient[0] && c.y < grassGradient[1] && c.z >= grassGradient[0] && c.z < grassGradient[1] )
 		return float4(0,1,0,1)*gg;
-		if(c.x>=forestLevel[0] && c.x<forestLevel[1] && c.y >=forestGradient[0] && c.y < forestGradient[1] && c.z >= forestGradient[0] && c.z < forestGradient[1] )
-		return float4(0,0.5,0,1)*gt;
+		
 	}
-		return float4(0.5,0.5,0,1)*color;
+	return float4(0.5,0.5,0,1)*color;
 }
 
 technique10 Process

@@ -93,7 +93,7 @@ float4 PS_Levels(psInput input) : SV_Target
 	//c.rgb = HSLtoRGB(float3(RGBtoHSL(c.rgb).r,RGBtoHSL(color.rgb).gb));
 	float4 e = levels.Sample(linearSampler,input.uv);
 	if(e.x >0.5)
-		return float4(1,1,1,1);
+		return c*color;
 	else
 		return c;
 	
